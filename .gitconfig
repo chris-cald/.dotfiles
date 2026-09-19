@@ -1,6 +1,3 @@
-[user]
-    email = squirrel289@calan.co
-    name = Blind Squirrel
 [diff]
     tool = vimdiff
 [merge]
@@ -24,8 +21,5 @@
 	sweep = "!git branch --merged | grep -vE '^\\*|\\+|main|staging' | xargs -n1 -r git branch -d"
 	tree = log --graph --decorate --all --oneline
 [credential "https://github.com"]
-	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
