@@ -21,5 +21,6 @@ plugged/
 !.config/zellij
 .config/zellij/plugins/*
 
-# Ignore operational artifacts
+# Ignore operational pi artifacts
 .pi/
+pi-config/agent/models-store.json
