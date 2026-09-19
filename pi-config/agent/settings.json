@@ -1,11 +1,5 @@
 {
   "packages": [
-    {
-      "source": "npm:pi-codex",
-      "skills": [
-        "-skills/gpt-5-4-prompting/SKILL.md"
-      ]
-    },
     "npm:pi-rtk-optimizer",
     "npm:pi-caffeinate",
     {
