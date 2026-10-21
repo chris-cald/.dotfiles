@@ -146,3 +146,5 @@ else
   zle -N zle-line-init
   zle -N zle-keymap-select
 fi
+
+export PI_SUBAGENTS_PI_CODING_AGENT_PACKAGE_ROOT="/opt/homebrew/opt/pi-coding-agent/libexec/lib/node_modules/@earendil-works/pi-coding-agent"
