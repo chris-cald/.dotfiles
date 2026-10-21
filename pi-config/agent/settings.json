@@ -72,7 +72,8 @@
     "npm:pi-delete-session",
     "npm:pi-notify",
     "npm:pi-ponytail",
-    "npm:pi-btw"
+    "npm:pi-btw",
+    "npm:@juicesharp/rpiv-ask-user-question"
   ],
   "lastChangelogVersion": "0.85.1",
   "theme": "catppuccin-mocha",
