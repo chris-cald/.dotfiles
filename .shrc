@@ -94,5 +94,8 @@ if command -v vim >/dev/null 2>&1; then
     export EDITOR SYSTEMD_EDITOR
 fi
 
+dotfiles_path_append "/opt/local/bin"
+dotfiles_path_append "/opt/local/sbin"
+
 export PATH
 [ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
