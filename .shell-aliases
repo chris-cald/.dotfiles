@@ -10,6 +10,7 @@ ssh() {
 }
 alias s='ssh'
 alias g='git'
+alias za='_dotfiles_zellij_launch'
 alias get_id='openssl rand -hex '
 
 dc() {

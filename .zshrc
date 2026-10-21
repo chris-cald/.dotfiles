@@ -100,18 +100,20 @@ unset _dotfiles_fnm_zsh
 
 source_if_readable "$HOME/.zsh/completion/path-prefix-completion.zsh"
 
-if [[ -z "${ZELLIJ_SESSION_NAME:-}" && -z "${ZELLIJ:-}" ]] && command -v zellij >/dev/null 2>&1; then
-  if [[ -z "${XDG_RUNTIME_DIR:-}" ]]; then
-    _dotfiles_zellij_runtime_dir="/tmp/zellij-$USER"
-    if mkdir -p "$_dotfiles_zellij_runtime_dir" && chmod 700 "$_dotfiles_zellij_runtime_dir"; then
-      export XDG_RUNTIME_DIR="$_dotfiles_zellij_runtime_dir"
+_dotfiles_zellij_launch() {
+  if [[ -z "${ZELLIJ_SESSION_NAME:-}" && -z "${ZELLIJ:-}" ]] && command -v zellij >/dev/null 2>&1; then
+    if [[ -z "${XDG_RUNTIME_DIR:-}" ]]; then
+      _dotfiles_zellij_runtime_dir="/tmp/zellij-$USER"
+      if mkdir -p "$_dotfiles_zellij_runtime_dir" && chmod 700 "$_dotfiles_zellij_runtime_dir"; then
+        export XDG_RUNTIME_DIR="$_dotfiles_zellij_runtime_dir"
+        _dotfiles_zellij_zsh="$(dotfiles_generated_target zellij zsh 2>/dev/null)" && [[ -n "$_dotfiles_zellij_zsh" ]] && eval "$_dotfiles_zellij_zsh"
+      fi
+    else
       _dotfiles_zellij_zsh="$(dotfiles_generated_target zellij zsh 2>/dev/null)" && [[ -n "$_dotfiles_zellij_zsh" ]] && eval "$_dotfiles_zellij_zsh"
     fi
-  else
-    _dotfiles_zellij_zsh="$(dotfiles_generated_target zellij zsh 2>/dev/null)" && [[ -n "$_dotfiles_zellij_zsh" ]] && eval "$_dotfiles_zellij_zsh"
   fi
-fi
-unset _dotfiles_zellij_runtime_dir _dotfiles_zellij_zsh
+  unset _dotfiles_zellij_runtime_dir _dotfiles_zellij_zsh
+}
 
 # zsh vi mode customizations
 function _vi_mode_indicator() {

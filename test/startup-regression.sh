@@ -307,7 +307,7 @@ EOF
         zstyle -L ":completion:*:(ssh|scp|rsync):*:hosts-ipaddr" ignored-patterns >/dev/null
         zstyle -L ":completion:*" matcher-list >/dev/null
         for option in extendedhistory incappendhistory sharehistory appendhistory histexpiredupsfirst histignoredups histignorealldups histfindnodups histignorespace histsavenodups histverify; do [[ -o "$option" ]] || exit 1; done
-        test "$HISTSIZE" = 1000; test "$SAVEHIST" = 2000; test "$HISTFILESIZE" = 2000; test "$HISTFILE" = "$HOME/.zsh_history"; test "$DOTFILES_FNM" = enabled; test "$DOTFILES_ZELLIJ" = enabled
+        test "$HISTSIZE" = 1000; test "$SAVEHIST" = 2000; test "$HISTFILESIZE" = 2000; test "$HISTFILE" = "$HOME/.zsh_history"; test "$DOTFILES_FNM" = enabled; test -z "${DOTFILES_ZELLIJ:-}"; alias za=_dotfiles_zellij_launch; _dotfiles_zellij_launch; test "$DOTFILES_ZELLIJ" = enabled
     ' >/dev/null 2>&1 || fail 'Zsh startup policy assertion failed'
     printf '%s\n' history autosuggestions vi-mode bun 'fnm:env --use-on-cd --version-file-strategy=recursive --shell zsh' path-prefix 'zellij:setup --generate-auto-start zsh' >"$tmp/expected-zlog"
     cmp -s "$tmp/expected-zlog" "$zlog" || fail 'Zsh plugin/generator ordering changed'
